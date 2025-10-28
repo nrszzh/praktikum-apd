@@ -172,7 +172,6 @@
 #     usn = input('Masukkan username : ')
 #     if len(usn) < 8 or not usn.isdigit():
 #         raise ValueError
-    
 
 
 # #studi kasus 2
