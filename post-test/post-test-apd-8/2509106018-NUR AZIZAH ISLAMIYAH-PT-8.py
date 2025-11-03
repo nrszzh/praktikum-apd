@@ -1,13 +1,12 @@
 import time
-import data # Impor file data
-from view import clear_screen, header_program # Impor dari view.py
-from log import register_user, login_valid # Impor dari log.py
-from crud import ( # Impor semua menu dari crud.py
+import data
+from display import clear_screen, header_program
+from log import register_user, login_valid
+from crud import (
     menu_tambah_donor, menu_lihat_donor, menu_ubah_donor, 
     menu_hapus_donor, menu_catat_riwayat
 )
 
-# Variabel state (dikelola di main.py)
 user_login = ''
 role_user = ''
 
@@ -26,7 +25,7 @@ while True:
             print('Anda telah keluar. Terima kasih!')
             exit()
         elif pilihan_awal == '2':
-            register_user(data.akun_user) # Kirim data.akun_user
+            register_user(data.akun_user)
         elif pilihan_awal == '1':
             coba_login = 0
             login_berhasil = False
@@ -57,11 +56,11 @@ while True:
                     sisa_coba = 3 - coba_login
                     if sisa_coba > 0:
                         print(f'Username atau Password salah! Sisa percobaan: {sisa_coba}')
-                        time.sleep(1.5)
+                        time.sleep(1)
 
             if not login_berhasil:
                 print('Login Gagal, kembali ke menu awal...')
-                time.sleep(2)
+                time.sleep(1)
         else:
             print('Pilihan tidak valid!')
             time.sleep(1)
@@ -70,8 +69,8 @@ while True:
     while user_login != '':
         clear_screen()
         header_program()
-        print(f'      Login sebagai {user_login} ({role_user.upper()})') # Sesuai kodemu
-        print(f'=========================================') # Perbaikan
+        print(f'      Login sebagai {user_login} ({role_user.upper()})')
+        print(f'=========================================')
 
         if role_user == 'admin':
             print('1. Tambah Data Pendonor')
@@ -97,7 +96,7 @@ while True:
                 print('Pilihan tidak valid!')
                 time.sleep(1)
 
-        else: # user biasa
+        else: #user biasa
             print('1. Lihat Data Pendonor')
             print('2. Logout')
             print('-----------------------------------------')
