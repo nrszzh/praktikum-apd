@@ -1,5 +1,5 @@
 import data
-from view import clear_screen, tampilkan_tabel_donor
+from display import clear_screen, tampilkan_tabel_donor
 from help import input_id, konfirmasi
 
 #c
@@ -7,7 +7,7 @@ def menu_tambah_donor():
     clear_screen()
     print('--- TAMBAH DATA PENDONOR BARU ---')
     print("\nData Saat Ini:")
-    tampilkan_tabel_donor(data.data_donor) # Gunakan data.data_donor
+    tampilkan_tabel_donor(data.data_donor)
     print("\nMasukkan data baru:")
     nama = input('Nama Lengkap      : ').strip()
     umur_str = input('Umur              : ').strip()
@@ -23,9 +23,9 @@ def menu_tambah_donor():
             if umur <= 0 or bb <= 0:
                 print('Umur dan Berat Badan harus angka positif')
             else:
-                data.id_terakhir += 1 # Akses data.id_terakhir
+                data.id_terakhir += 1
                 donor_baru_dict = {'nama': nama, 'umur': umur, 'bb': bb, 'goldar': goldar, 'telepon': telepon, 'jumlah_donor': 0}
-                data.data_donor[data.id_terakhir] = donor_baru_dict # Akses data.data_donor
+                data.data_donor[data.id_terakhir] = donor_baru_dict
                 print('Data berhasil ditambahkan!')
         except ValueError:
             print('Umur dan Berat Badan harus berupa angka!')
