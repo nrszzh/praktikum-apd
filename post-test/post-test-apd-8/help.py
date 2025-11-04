@@ -13,7 +13,7 @@ def input_id(isi):
         try:
             id_int = int(id_str)
             if id_int > 0: return id_int
-            else: print('ID harus berupa angka positif')
+            else: print('ID harus berupa angka > 0')
         except ValueError: print('ID harus berupa angka')
 
 def apakah_data_kosong(data):

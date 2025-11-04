@@ -6,16 +6,16 @@ from help import input_id, konfirmasi
 def menu_tambah_donor():
     clear_screen()
     print('--- TAMBAH DATA PENDONOR BARU ---')
-    print("\nData Saat Ini:")
+    print('Data Saat Ini:')
     tampilkan_tabel_donor(data.data_donor)
-    print("\nMasukkan data baru:")
+    print('Masukkan data baru:')
     nama = input('Nama Lengkap      : ').strip()
     umur_str = input('Umur              : ').strip()
     bb_str = input('Berat Badan (kg)  : ').strip()
     goldar = input('Golongan Darah    : ').strip().upper()
     telepon = input('Nomor Telepon     : ').strip()
     if not nama or not umur_str or not bb_str or not goldar or not telepon:
-        print('Semua harus diisi!')
+        print('Semua harus diisi')
     else:
         try:
             umur = int(umur_str)
@@ -26,9 +26,9 @@ def menu_tambah_donor():
                 data.id_terakhir += 1
                 donor_baru_dict = {'nama': nama, 'umur': umur, 'bb': bb, 'goldar': goldar, 'telepon': telepon, 'jumlah_donor': 0}
                 data.data_donor[data.id_terakhir] = donor_baru_dict
-                print('Data berhasil ditambahkan!')
+                print('Data berhasil ditambahkan')
         except ValueError:
-            print('Umur dan Berat Badan harus berupa angka!')
+            print('Umur dan Berat Badan harus berupa angka')
 
     input('< kembali(0)')
 
@@ -63,20 +63,20 @@ def menu_ubah_donor():
             try:
                 umur_baru = int(umur_baru_str)
                 if umur_baru > 0: pendonor_ditemukan['umur'] = umur_baru
-                else: pesan_error.append('Umur harus positif')
-            except ValueError: pesan_error.append('Input umur tidak valid (harus angka)')
+                else: pesan_error.append('Umur harus angka > 0')
+            except ValueError: pesan_error.append('Umur tidak valid (harus angka)')
         if bb_baru_str:
             try:
                 bb_baru = int(bb_baru_str)
                 if bb_baru > 0: pendonor_ditemukan['bb'] = bb_baru
-                else: pesan_error.append('Berat badan harus positif')
-            except ValueError: pesan_error.append('Input berat badan tidak valid (harus angka)')
+                else: pesan_error.append('Berat badan harus > 0')
+            except ValueError: pesan_error.append('Berat badan tidak valid (harus angka)')
         if goldar_baru: pendonor_ditemukan['goldar'] = goldar_baru
         if telepon_baru: pendonor_ditemukan['telepon'] = telepon_baru
         if not pesan_error: 
             print('Data berhasil diubah')
         else:
-            print('\nData diubah sebagian dengan error:')
+            print('Data diubah sebagian dengan error:')
             for msg in pesan_error: print(f" - {msg}")
             
     input('< kembali(0)')
